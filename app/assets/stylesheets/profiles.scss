@@ -1,0 +1,32 @@
+@import './variables';
+
+.icon {
+  position: absolute;
+  width: 76.88px;
+  height: 76.88px;
+  left: 148.56px;
+  top: 105.56px;
+}
+
+.breadcrumb__list {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  position: absolute;
+  width: 241px;
+  height: 47px;
+  left: 75px;
+  top: 253px;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-around;
+}
+
+.username {
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 30px;
+  line-height: 24px;
+  color: #333A42;
+}
