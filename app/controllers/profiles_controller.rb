@@ -4,4 +4,9 @@ class ProfilesController < ApplicationController
   def show
     @useername = current_user.username
   end
+
+  private
+    def profile_params
+      params.require(:profile).permit(:avatar, :nickname)
+    end
 end
