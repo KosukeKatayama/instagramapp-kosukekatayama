@@ -12,4 +12,16 @@ class User < ApplicationRecord
   end
 
   has_one :profile, dependent: :destroy
+
+  def prepare_profile
+    profile || build_profile
+  end
+
+  def avatar_image
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'baseline_account_circle_black_48dp.png'
+    end
+  end
 end
