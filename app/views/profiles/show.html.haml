@@ -1,0 +1,30 @@
+.container
+  .username
+    = current_user.username
+
+  = image_tag current_user.avatar_image, class: 'icon'
+
+  .popup-overlay
+    .popup-content
+      = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+        %div
+          = f.label :avatar, 'Avatar'
+        %div
+          = f.file_field :avatar, class: 'text'   
+        %div
+          = f.submit 'Submit', class: 'btn-submit'
+      %button.close cancel
+
+  .breadcrumb__list
+    ._breadcrumb__item
+      %p.count 44
+      %p.title Posts
+    ._breadcrumb__item
+      %p.count 110
+      %p.title Followers
+    ._breadcrumb__item
+      %p.count 44
+      %p.title Follow
+    
+
+= javascript_pack_tag 'profile'

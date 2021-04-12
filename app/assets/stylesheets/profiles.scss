@@ -1,0 +1,104 @@
+@import './variables';
+
+.icon {
+  position: absolute;
+  width: 76.88px;
+  height: 76.88px;
+  left: 148.56px;
+  top: 105.56px;
+  cursor: pointer;
+}
+
+.breadcrumb__list {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  position: absolute;
+  width: 241px;
+  height: 47px;
+  left: 75px;
+  top: 253px;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-around;
+}
+
+.username {
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 30px;
+  line-height: 24px;
+  color: #333A42;
+}
+
+.count {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #333A42;
+  // position: absolute;
+  // width: 241px;
+  // height: 47px;
+  // left: 75px;
+  // top: 253px;
+  // display: flex;
+}
+
+
+
+
+
+
+.popup-overlay{
+  visibility:hidden;
+  position:absolute;
+  background:#ffffff;
+  border:3px solid #666666;
+  width:80%;
+  height:20%;
+  left:10%; 
+}
+.popup-overlay.active{
+  visibility:visible;
+  text-align:center;
+}
+
+.popup-content {
+ visibility:hidden;
+}
+
+.popup-content.active {
+  visibility:visible;
+}
+
+button{
+  display:inline-block;
+  vertical-align:middle;
+  border-radius:30px;
+  margin:.20rem;
+  font-size: 1rem;
+  color:#666666;
+  background:	#ffffff;
+  border:1px solid #666666;  
+}
+
+button:hover{
+  border:1px solid #666666;
+  background:#666666;
+  color:#ffffff;
+}
+
+.close {
+  position: absolute;
+  top: 120px;
+  left: 115px;
+}
+
+.btn-submit {
+  position: absolute;
+  top: 55px;
+  left: 200px;
+}
