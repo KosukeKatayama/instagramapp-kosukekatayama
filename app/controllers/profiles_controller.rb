@@ -21,7 +21,6 @@ class ProfilesController < ApplicationController
 
   private
     def profile_params
-      # binding.pry
       params.permit(:avatar)
     end
 end
