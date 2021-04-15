@@ -10,7 +10,8 @@
   .icons
     = image_tag 'heart.svg', class: 'heart-img'
     = image_tag 'comment.png', class: 'comment-img'
-    = image_tag 'share.png', class: 'share-img'
+    = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
+      = image_tag 'share.png', class: 'share-img'
           
   .card-content
     = article.content
