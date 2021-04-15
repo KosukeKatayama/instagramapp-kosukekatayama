@@ -1,0 +1,44 @@
+@import './variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  &_left {
+
+    &_cancel {
+      color: #2F80ED;
+    }
+  }
+
+  &_center {
+    color: $center-color;
+  }
+
+  &_right {
+    color: #BDBDBD;
+  }
+}
+
+.avatar-primary {
+  border-radius: 50%;
+  width: 76.88px;
+  height: 76.88px;
+}
+
+.avatar-secondary {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-tertiary {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
