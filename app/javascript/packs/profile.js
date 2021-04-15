@@ -8,7 +8,7 @@ import axios from 'axios'
 //     })
 // })
 
-$(".icon").on("click", function(){
+$(".profile-avatar").on("click", function(){
   $(".popup-overlay, .popup-content").addClass("active");
 });
 

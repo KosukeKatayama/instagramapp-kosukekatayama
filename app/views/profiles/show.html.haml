@@ -1,8 +1,8 @@
 .container
   .username
     = current_user.username
-
-  = image_tag current_user.avatar_image, class: 'icon'
+  .profile-avatar
+    = image_tag current_user.avatar_image, class: 'avatar-primary'
 
   .popup-overlay
     .popup-content
