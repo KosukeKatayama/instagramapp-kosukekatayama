@@ -1,0 +1,17 @@
+.card
+  .article-page
+    = image_tag article.user.avatar_image, class: 'avatar-tertiary'
+    %div  
+      %p.article-page_username= article.user.username
+      %p.article-page_date= I18n.l(article.created_at, format: :default)
+      
+  .card-phots
+    = image_tag article.images[0], class: 'card-img'
+  .icons
+    = image_tag 'heart.svg', class: 'heart-img'
+    = image_tag 'comment.png', class: 'comment-img'
+    = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
+      = image_tag 'share.png', class: 'share-img'
+          
+  .card-content
+    = article.content

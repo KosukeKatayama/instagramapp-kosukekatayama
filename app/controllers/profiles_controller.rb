@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
       redirect_to profile_path, notice: 'プロフィールが更新されました'
     else
       flash.now[:error] = 'プロフィールが更新できませんでした'
-        render :edit
+      render :edit
     end
   end
 

@@ -1,0 +1,6 @@
+.container
+  %div
+    = image_tag 'photo-camera.png', class: 'camera-img'
+
+  - @article.each do |article|
+    = render 'commons/article', article: article

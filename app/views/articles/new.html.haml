@@ -1,0 +1,25 @@
+.container
+  .header
+    %p.header_left_cancel Cancel
+    %p.header_center Status
+    %p.header_right Post
+  
+  .post-page
+    .post-page_avatar
+      = image_tag current_user.avatar_image, class: 'avatar-secondary'
+    .post-page_username
+      = current_user.username
+  
+  .post-form
+    %ul
+      - @article.errors.full_messages.each do |message|
+        %li= message
+    = form_with(model: @article, local: true) do |f|
+      %div
+        = f.text_field :content, class: 'text', placeholder: "What's on your mind?"
+      %hr
+      %div
+        = f.file_field :images, multiple: true
+      %div
+      %br
+        = f.submit 'Post', class: 'btn-socondary'

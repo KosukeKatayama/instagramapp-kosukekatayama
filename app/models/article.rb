@@ -1,18 +1,22 @@
 # == Schema Information
 #
-# Table name: profiles
+# Table name: articles
 #
 #  id         :bigint           not null, primary key
-#  nickname   :string
+#  content    :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
 #
 # Indexes
 #
-#  index_profiles_on_user_id  (user_id)
+#  index_articles_on_user_id  (user_id)
 #
-class Profile < ApplicationRecord
+class Article < ApplicationRecord
   belongs_to :user
-  has_one_attached :avatar
+  has_many_attached :images
+end
+
+def display_created_at
+  I18n.l(self.created_at, format: :default)
 end
