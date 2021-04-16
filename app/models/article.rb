@@ -15,8 +15,9 @@
 class Article < ApplicationRecord
   belongs_to :user
   has_many_attached :images
-end
+  has_many :likes, dependent: :destroy
 
-def display_created_at
-  I18n.l(self.created_at, format: :default)
+  def display_created_at
+    I18n.l(self.created_at, format: :default)
+  end
 end
