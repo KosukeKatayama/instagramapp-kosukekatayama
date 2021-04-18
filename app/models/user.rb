@@ -36,7 +36,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  def prepare_profile
+  def prepare_profile?
     profile || build_profile
   end
 
@@ -46,5 +46,9 @@ class User < ApplicationRecord
     else
       'baseline_account_circle_black_48dp.png'
     end
+  end
+
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
   end
 end
