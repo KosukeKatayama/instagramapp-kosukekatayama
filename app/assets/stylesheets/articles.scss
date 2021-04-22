@@ -1,5 +1,9 @@
 @import './variables';
 
+.cancel {
+  color: #2F80ED;
+}
+
 .camera-img {
   width: 20px;
   height: 16.33px;
@@ -42,17 +46,26 @@
 }
 
 .icons {
+  display: flex;
   margin-bottom: 8px;
 }
 
-.heart-img {
+.active-heart {
   width: 16px;
   height: 14.88px;
+  margin-right: 5px;
+}
+
+.inactive-heart {
+  width: 16px;
+  height: 14.88px;
+  margin-right: 5px;
 }
 
 .comment-img {
   width: 16px;
   height: 14px;
+  margin-right: 5px;
 }
 
 .share-img {
@@ -71,3 +84,23 @@
   line-height: 18px;
   color: $primary-color;
 }
+
+// .icon {
+//   display: flex;
+//   margin-bottom: 8px;
+
+//   &_heart-img {
+//     width: 16px;
+//     height: 14.88px;
+//   }
+
+//   &_comment-img {
+//     width: 16px;
+//     height: 14px;
+//   }
+
+//   &_share-img {
+//     width: 14.92;
+//     height: 16px;
+//   }
+// }

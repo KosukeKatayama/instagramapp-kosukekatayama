@@ -1,6 +1,6 @@
 .container
   .header
-    %p.header_left_cancel Cancel
+    %p.header_left_cancel= link_to 'Cancel', articles_path, class: 'cancel'
     %p.header_center Status
     %p.header_right Post
   

@@ -8,10 +8,18 @@
   .card-phots
     = image_tag article.images[0], class: 'card-img'
   .icons
-    = image_tag 'heart.svg', class: 'heart-img'
-    = image_tag 'comment.png', class: 'comment-img'
-    = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
-      = image_tag 'share.png', class: 'share-img'
+    - if user_signed_in? 
+      %div
+        = image_tag 'heart-active.svg', class: 'active-heart hidden', id: "#{article.id}"
+      %div
+        = image_tag 'heart.svg', class: 'inactive-heart hidden', id: "#{article.id}"
+      .comment-img
+        = image_tag 'comment.png', class: 'comment-img'
+      .share-img
+        = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
+          = image_tag 'share.png', class: 'share-img'
           
   .card-content
     = article.content
+
+= javascript_pack_tag 'article'
