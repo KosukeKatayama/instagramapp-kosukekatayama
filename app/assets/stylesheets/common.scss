@@ -24,6 +24,15 @@
   }
 }
 
+.center-text {
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 30px;
+  line-height: 24px;
+  color: #333A42;
+}
+
 .avatar-primary {
   border-radius: 50%;
   width: 76.88px;
@@ -41,4 +50,11 @@
   width: 30px;
   height: 30px;
   margin-right: 8px;
+}
+
+.back-img {
+  width: 20px;
+  height: 16px;
+  position: absolute;
+  top: 48.83px;
 }
