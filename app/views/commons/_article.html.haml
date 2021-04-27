@@ -14,7 +14,8 @@
       %div
         = image_tag 'heart.svg', class: 'inactive-heart hidden', id: "#{article.id}"
       .comment-img
-        = image_tag 'comment.png', class: 'comment-img'
+        = link_to article_comments_path(article) do
+          = image_tag 'comment.png', class: 'comment-img'
       .share-img
         = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
           = image_tag 'share.png', class: 'share-img'
