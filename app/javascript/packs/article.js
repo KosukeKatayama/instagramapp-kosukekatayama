@@ -16,7 +16,7 @@ document.addEventListener('turbolinks:load', () => {
         }
       }
 
-      axios.get(`/articles/${articleId}/like`)
+      axios.get(`/api/articles/${articleId}/like`)
       .then((response) => {
         const hasLiked = response.data.hasLiked
         handleHeartDisplay(hasLiked)
@@ -25,7 +25,7 @@ document.addEventListener('turbolinks:load', () => {
 
   $('.inactive-heart').on('click', function(){
     const articleId = $(this).attr('id')
-    axios.post(`/articles/${articleId}/like`)
+    axios.post(`/api/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
           $(`#${articleId}.active-heart`).removeClass('hidden')
@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
 
   $('.active-heart').on('click', function(){
     const articleId = $(this).attr('id')
-    axios.delete(`/articles/${articleId}/like`)
+    axios.delete(`/api/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
           $(`#${articleId}.inactive-heart`).removeClass('hidden')

@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
 
   resources :articles, only: %i[index new create] do
-    resource :like, only: %i[show create destroy]
     resources :comments, only: %i[index new create]
+  end
+
+  namespace :api do
+    scope '/articles/:article_id' do
+      resources :comments, only: %i[index new create]
+      resource :like, only: %i[show create destroy]
+    end
   end
 end
