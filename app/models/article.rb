@@ -16,6 +16,7 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many_attached :images
   has_many :likes, dependent: :destroy
+  has_many :comments
 
   def display_created_at
     I18n.l(created_at, format: :default)
