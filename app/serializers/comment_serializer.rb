@@ -1,3 +1,5 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :content, :user
+  attributes :id, :content
+
+  belongs_to :user
 end
