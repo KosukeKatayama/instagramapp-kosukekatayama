@@ -106,7 +106,9 @@ document.addEventListener('turbolinks:load', () => {
         .then((res) => {
           const comment = res.data
           $('.comment-container').append(
-            `<div class="article-comment"><p>${comment.content}</p></div>`
+            `<img class="avatar-tertiary" src="${comment.user.comment_avatar_image}">
+            <div class="article-comment"><p class="article-page_username">${comment.user.username}</p></div>
+            <div class="article-comment"><p>${comment.content}</p></div>`
           )
           console.log(res)
           $('#comment_content').val('')
