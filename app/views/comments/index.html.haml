@@ -1,0 +1,21 @@
+.container
+  %div
+    = link_to root_path do
+      = image_tag 'Group.png', class: 'back-img'
+
+  .center-text#comment{data: {article_id: @article.id}}
+    Comment
+  
+  -# - @comments.each do |comment|
+  -#   .article-page
+  -#     = image_tag comment.user.avatar_image, class: 'avatar-tertiary'
+  -#     %div  
+  -#       %p.article-page_username= comment.user.username
+  .comment-container
+
+  .comment-text-aera
+    = text_area_tag :comment_content, ''
+  .comment-btn
+    Post
+
+= javascript_pack_tag 'article'

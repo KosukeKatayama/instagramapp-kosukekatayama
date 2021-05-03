@@ -1,7 +1,7 @@
 .container
   %div
     = link_to new_article_path do
-      = image_tag 'photo-camera.png', class: 'camera-img'
+      = image_tag 'photo-camera.png', class: 'back-img'
   
   - @article.each do |article|
     = render 'commons/article', article: article

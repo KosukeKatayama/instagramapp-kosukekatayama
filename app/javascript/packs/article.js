@@ -16,7 +16,7 @@ document.addEventListener('turbolinks:load', () => {
         }
       }
 
-      axios.get(`/articles/${articleId}/like`)
+      axios.get(`/api/articles/${articleId}/like`)
       .then((response) => {
         const hasLiked = response.data.hasLiked
         handleHeartDisplay(hasLiked)
@@ -25,7 +25,7 @@ document.addEventListener('turbolinks:load', () => {
 
   $('.inactive-heart').on('click', function(){
     const articleId = $(this).attr('id')
-    axios.post(`/articles/${articleId}/like`)
+    axios.post(`/api/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
           $(`#${articleId}.active-heart`).removeClass('hidden')
@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
 
   $('.active-heart').on('click', function(){
     const articleId = $(this).attr('id')
-    axios.delete(`/articles/${articleId}/like`)
+    axios.delete(`/api/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
           $(`#${articleId}.inactive-heart`).removeClass('hidden')
@@ -52,4 +52,71 @@ document.addEventListener('turbolinks:load', () => {
         console.log(e)
       })
   })
+
+
+// $('.comment-img').on('click', function(){
+//   const articleId = $(this).attr('id')
+//   axios.get(`/api/articles/${articleId}/comments`)
+//   .then((res) => {
+//     const comment = res.data
+//     comment.forEach((comment) => {
+//       $('.comment-container').append(
+//         `<div class="article-comment"><p>${comment.content}</p></div>`
+//       )
+//     })
+//   })
+// })
+
+
+  // $('.comment-img').on('click', function(){
+  //   const articleId = $(this).attr('id')
+  //   axios.get(`/api/articles/${articleId}/comments`)
+  //   .then((res) => {
+  //     const comment = res.data
+  //     $('.comment-container').append(
+  //       `<div class="article-comment"><p>${comment.content}</p></div>`
+  //     )
+  //   })
+  // })
+
+  const dataset = $('#comment').data()
+  const articleId = dataset.articleId
+
+  axios.get(`/api/articles/${articleId}/comments`)
+  .then((res) => {
+    const comment = res.data
+    comment.forEach((comment) => {
+      $('.comment-container').append(
+        `<img class="avatar-tertiary" src="${comment.user.comment_avatar_image}">
+        <div class="article-comment"><p class="article-page_username">${comment.user.username}</p></div>
+        <div class="article-comment"><p>${comment.content}</p></div>`
+      )
+      // debugger
+    })
+  })
+
+  $('.comment-btn').on('click', () => {
+    const content = $('#comment_content').val()
+    if (!content) {
+      window.alert('コメントを入力してください')
+    } else {
+      axios.post(`/api/articles/${articleId}/comments`, {
+        comment: {content: content}
+      })
+        .then((res) => {
+          const comment = res.data
+          $('.comment-container').append(
+            `<img class="avatar-tertiary" src="${comment.user.comment_avatar_image}">
+            <div class="article-comment"><p class="article-page_username">${comment.user.username}</p></div>
+            <div class="article-comment"><p>${comment.content}</p></div>`
+          )
+          console.log(res)
+          $('#comment_content').val('')
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    }
+  })
 })
+

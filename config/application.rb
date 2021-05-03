@@ -16,6 +16,8 @@ module InstagramApp
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    routes.default_url_options[:host] = 'www'
+
     config.i18n.default_locale = :ja
   end
 end

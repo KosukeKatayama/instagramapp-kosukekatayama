@@ -1,8 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  def show
-  end
+  def show; end
 
   def edit
     @profile = current_user.prepare_profile
@@ -20,7 +19,8 @@ class ProfilesController < ApplicationController
   end
 
   private
-    def profile_params
-      params.permit(:avatar)
-    end
+
+  def profile_params
+    params.permit(:avatar)
+  end
 end
