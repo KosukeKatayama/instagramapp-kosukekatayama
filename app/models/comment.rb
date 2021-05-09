@@ -17,4 +17,15 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :article
+
+  after_create :send_email, if: has_username?(comment, user)
+
+  private
+  def send_email
+    CommentMailer.mention(comment, user).deliver_now
+  end
+
+  def has_username?(comment, user)
+    comment.content.include?(user.username)
+  end
 end
