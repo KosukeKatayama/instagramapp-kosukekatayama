@@ -18,14 +18,17 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :article
 
-  def has_username?(user)
-    comment.content.exists?("@#{user.username}")
+  def has_username?
+    username = User.all.select('username')
+    content.include?("@#{username}")
+    # binding.pry
   end
 
-  after_create :send_email, if: :has_username?(user)
+  after_create :send_email, if: :has_username?
 
   private
+
   def send_email
-    CommentMailer.mention().deliver_now
+    CommentMailer.mention(user).deliver_now
   end
 end
