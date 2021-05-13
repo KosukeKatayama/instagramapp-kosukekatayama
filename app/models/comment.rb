@@ -19,7 +19,7 @@ class Comment < ApplicationRecord
   belongs_to :article
 
   def has_username?
-    username = User.all.select('username')
+    username = User.pluck(:username)
     content.include?("@#{username}")
     # binding.pry
   end
