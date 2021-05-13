@@ -20,11 +20,20 @@ class Comment < ApplicationRecord
 
   def has_username?
     username = User.pluck(:username)
-    content.include?("@#{username}")
-    # binding.pry
+    # 全てのユーザーの中からusernameカラムの値のみを配列で取得
+    mention = username.join("")
+    # 配列を文字列に変換
+    content.include?("@#{mention}")
+    # コメント内にusernameが含まれているかどうかを検索
   end
 
+  # def get_username
+  #   if has_username? == true
+
+  # end
+
   after_create :send_email, if: :has_username?
+  binding.pry
 
   private
 
