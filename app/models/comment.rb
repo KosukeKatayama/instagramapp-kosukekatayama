@@ -18,26 +18,30 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :article
 
+  # def has_username?
+  #   username = User.pluck(:username)
+  #   # 全てのユーザーの中からusernameカラムの値のみを配列で取得
+  #   mention = username.join("")
+  #   # 配列を文字列に変換
+  #   content.include?("@#{mention}")
+  #   # コメント内にusernameが含まれているかどうかを検索
+  #   binding.pry
+  # end
+
   def has_username?
     username = User.pluck(:username)
     # 全てのユーザーの中からusernameカラムの値のみを配列で取得
-    mention = username.join("")
-    # 配列を文字列に変換
-    content.include?("@#{mention}")
-    # コメント内にusernameが含まれているかどうかを検索
+    username.any? { |username| content.include?("@#{username}") }
+    # コメント内に"@"+"username"が含まれているかどうかを検索
+    # binding.pry
   end
 
-  # def get_username
-  #   if has_username? == true
-
-  # end
-
   after_create :send_email, if: :has_username?
-  binding.pry
+
 
   private
 
   def send_email
-    CommentMailer.mention(user).deliver_now
+    CommentMailer.mention(user).deliver_later
   end
 end
