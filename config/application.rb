@@ -19,5 +19,6 @@ module InstagramApp
     routes.default_url_options[:host] = 'www'
 
     config.i18n.default_locale = :ja
+    config.active_job.queue_adapter = :sidekiq
   end
 end
