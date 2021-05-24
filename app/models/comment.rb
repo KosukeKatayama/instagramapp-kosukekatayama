@@ -76,5 +76,6 @@ class Comment < ApplicationRecord
     mention_user_ids = mention_user.map(&:id)
     # そのままユーザーを渡せないのでmapを使ってidに変換
     CommentMailer.new_mention(mention_user_ids).deliver_later
+    # binding.pry
   end
 end
