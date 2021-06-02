@@ -19,7 +19,7 @@
     - if current_user&.has_followed?(user)
       .header
         .header_right
-        = link_to 'Un Follow', '#'
+        = link_to 'UnFollow', account_unfollows_path(user), method: :post
     - else
       .header
         .header_right
