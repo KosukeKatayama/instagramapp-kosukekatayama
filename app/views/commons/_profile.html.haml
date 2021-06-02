@@ -16,7 +16,7 @@
             = f.submit 'Submit', class: 'btn-submit'
         %button.close cancel
   - else
-    - if current_user.has_followed?(user)
+    - if current_user&.has_followed?(user)
       .header
         .header_right
         = link_to 'Un Follow', '#'
