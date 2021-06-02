@@ -16,9 +16,14 @@
             = f.submit 'Submit', class: 'btn-submit'
         %button.close cancel
   - else
-    .header
-      .header_right
-      = link_to 'Follow', account_follows_path(user), method: :post
+    - if current_user.has_followed?(user)
+      .header
+        .header_right
+        = link_to 'Un Follow', '#'
+    - else
+      .header
+        .header_right
+        = link_to 'Follow', account_follows_path(user), method: :post
 
   .breadcrumb__list
     ._breadcrumb__item
