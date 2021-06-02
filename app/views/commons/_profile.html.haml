@@ -1,0 +1,35 @@
+.container
+  .center-text
+    = user.username
+  .profile-avatar
+    = image_tag user.avatar_image, class: 'avatar-primary'
+
+  - if user == current_user
+    .popup-overlay
+      .popup-content
+        = form_with(model: profile, url: profile_path, method: 'put', local: true) do |f|
+          %div
+            = f.label :avatar, 'Avatar'
+          %div
+            = f.file_field :avatar, class: 'text'   
+          %div
+            = f.submit 'Submit', class: 'btn-submit'
+        %button.close cancel
+  - else
+    .header
+      .header_right
+      = link_to 'Follow', '#'
+
+  .breadcrumb__list
+    ._breadcrumb__item
+      %p.count 44
+      %p.title Posts
+    ._breadcrumb__item
+      %p.count 110
+      %p.title Followers
+    ._breadcrumb__item
+      %p.count 44
+      %p.title Follow
+    
+
+= javascript_pack_tag 'profile'
