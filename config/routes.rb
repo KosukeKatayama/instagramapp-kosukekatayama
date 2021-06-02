@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root to: 'articles#index'
 
   resource :profile, only: %i[show edit update]
-  resources :accounts, only: %i[show]
+  resources :accounts, only: %i[show] do
+    resources :follows, only: %i[create]
+  end
 
   resources :articles, only: %i[index new create] do
     resources :comments, only: %i[index new create]

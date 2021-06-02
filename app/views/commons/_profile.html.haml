@@ -18,7 +18,7 @@
   - else
     .header
       .header_right
-      = link_to 'Follow', '#'
+      = link_to 'Follow', account_follows_path(user), method: :post
 
   .breadcrumb__list
     ._breadcrumb__item
