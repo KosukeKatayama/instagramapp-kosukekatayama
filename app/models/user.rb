@@ -56,6 +56,11 @@ class User < ApplicationRecord
     likes.exists?(article_id: article.id)
   end
 
+  def has_followed?(user)
+    following_relationships.exists?(following_id: user.id)
+    # フォローしているユーザーの中に引数のユーザーが含まれているか検索
+  end
+
   def follow!(user)
     if user.is_a?(User)
       # 渡ってきたuserがインスタンスかどうかの判別する
