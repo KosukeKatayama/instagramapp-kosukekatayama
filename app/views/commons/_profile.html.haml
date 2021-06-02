@@ -19,21 +19,21 @@
     - if current_user&.has_followed?(user)
       .header
         .header_right
-        = link_to 'UnFollow', account_unfollows_path(user), method: :post
+        = link_to 'UnFollow', account_unfollows_path(user), method: :post, class: 'unfollow-btn', remote: true
     - else
       .header
         .header_right
-        = link_to 'Follow', account_follows_path(user), method: :post
+        = link_to 'Follow', account_follows_path(user), method: :post, class: 'follow-btn', remote: true
 
   .breadcrumb__list
     ._breadcrumb__item
-      %p.count 44
+      %p.count= user.articles.count
       %p.title Posts
     ._breadcrumb__item
-      %p.count 110
+      %p.count= user.followers.count
       %p.title Followers
     ._breadcrumb__item
-      %p.count 44
+      %p.count= user.followings.count
       %p.title Follow
     
 
