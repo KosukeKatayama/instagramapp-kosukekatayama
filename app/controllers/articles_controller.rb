@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
   def index
-    @article = Article.all
+    @articles = Article.all
   end
 
   def new

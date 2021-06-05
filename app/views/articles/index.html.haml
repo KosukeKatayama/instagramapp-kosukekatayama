@@ -9,5 +9,5 @@
     -else
       = button_to 'LOGIN', new_user_session_path, method: :post
   
-  - @article.each do |article|
+  - @articles.each do |article|
     = render 'commons/article', article: article
