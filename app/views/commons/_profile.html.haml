@@ -31,7 +31,7 @@
       %p.title Posts
     ._breadcrumb__item
       %p.count= user.followers.count
-      %p.title Followers
+      = link_to 'Follower', account_followers_path(user)
     ._breadcrumb__item
       %p.count= user.followings.count
       = link_to 'Follow', account_followings_path(user)
