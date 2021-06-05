@@ -73,6 +73,7 @@ class User < ApplicationRecord
   end
 
   private
+
   def get_user_id(user)
     if user.is_a?(User)
       # 渡ってきたuserがインスタンスかどうかの判別する

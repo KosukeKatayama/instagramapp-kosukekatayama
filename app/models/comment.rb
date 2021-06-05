@@ -66,10 +66,11 @@ class Comment < ApplicationRecord
   # end
 
   private
+
   def send_email
     mention = content.scan(/@\w+/)
     # content内から"@"+"username"を配列で抜き出す
-    mention_username = mention.join(",").scan(/\w+/)
+    mention_username = mention.join(',').scan(/\w+/)
     # mentionを配列から文字列に変換し、@以外を抜き出す
     mention_user = User.where(username: mention_username)
     # ユーザーの中からusrenameキーを指定し、mentionus_rnameに該当するユーザーを探す
