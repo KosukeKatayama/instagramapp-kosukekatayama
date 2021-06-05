@@ -34,7 +34,7 @@
       %p.title Followers
     ._breadcrumb__item
       %p.count= user.followings.count
-      %p.title Follow
+      = link_to 'Follow', account_followings_path(user)
     
 
 = javascript_pack_tag 'profile'

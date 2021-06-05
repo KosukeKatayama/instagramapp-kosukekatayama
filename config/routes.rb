@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
 
   resources :accounts, only: %i[show] do
+    resources :followings, only: %i[index]
+    resources :followers, only: %i[index]
     resources :follows, only: %i[create]
     resources :unfollows, only: %i[create]
   end

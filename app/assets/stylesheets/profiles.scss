@@ -91,3 +91,19 @@ button:hover{
   top: 55px;
   left: 200px;
 }
+
+.follow-page {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 18px;
+
+  &_username {
+    color: $primary-color;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+.follow_username {
+  margin-left: 20px;
+}
