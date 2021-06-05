@@ -1,6 +1,7 @@
 .card
   .article-page
-    = image_tag article.user.avatar_image, class: 'avatar-tertiary'
+    = link_to account_path(article.user) do
+      = image_tag article.user.avatar_image, class: 'avatar-tertiary'
     %div  
       %p.article-page_username= article.user.username
       %p.article-page_date= I18n.l(article.created_at, format: :default)

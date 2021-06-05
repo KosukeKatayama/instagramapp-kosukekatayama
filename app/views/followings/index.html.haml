@@ -1,0 +1,15 @@
+.container
+  %div
+    = link_to 'javascript:history.back()' do
+      = image_tag 'Group.png', class: 'back-img'
+
+  .center-text
+    Followings
+
+  - @followings.each do |user|
+    .follow-page
+      = link_to account_path(user) do
+        = image_tag user.avatar_image, class: 'avatar-secondary'
+      %div  
+      %p.article-page_username.follow_username= user.username
+    %hr

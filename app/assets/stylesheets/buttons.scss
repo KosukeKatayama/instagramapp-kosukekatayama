@@ -3,16 +3,21 @@
 .btn-primary {
   background-color: #FFE600;
   border: none;
-  // width: 100%;
+  width: 100%;
   text-align: center;
   color: #000000;
   padding: 16px 0;
   font-weight: 500;
+  margin-top: 200px;
 
-  position: absolute;
-  width: 343px;
-  height: 48px;
-  left: 16px;
-  top: 626px;
+  // position: absolute;
+  // width: 343px;
+  // height: 48px;
+  // left: 16px;
+  // top: 626px;
 
+}
+
+.sign-btn {
+  text-align: right;
 }

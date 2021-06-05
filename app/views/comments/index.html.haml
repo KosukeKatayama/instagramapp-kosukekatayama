@@ -1,6 +1,6 @@
 .container
   %div
-    = link_to root_path do
+    = link_to 'javascript:history.back()' do
       = image_tag 'Group.png', class: 'back-img'
 
   .center-text#comment{data: {article_id: @article.id}}
