@@ -1,0 +1,13 @@
+.container
+  %div
+    = link_to new_article_path do
+      = image_tag 'photo-camera.png', class: 'back-img'
+
+  .sign-btn
+    -if signed_in?
+      = button_to 'LOGOUT', destroy_user_session_path, method: :delete
+    -else
+      = button_to 'LOGIN', new_user_session_path, method: :post
+  
+  - @articles.each do |article|
+    = render 'commons/article', article: article
