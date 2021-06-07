@@ -1,4 +1,4 @@
-class TimelinesController < ApplicationController
+class PopularsController < ApplicationController
   before_action :authenticate_user!
 
   def show

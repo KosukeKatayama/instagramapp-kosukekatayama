@@ -11,7 +11,7 @@
 
   .home-btn
     -if current_page?(root_path)
-      = button_to 'POPULAR', timeline_path, method: :get
+      = button_to 'POPULAR', popular_path, method: :get
     -else
       = button_to 'TIMELINE', root_path, method: :get
   
