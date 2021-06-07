@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
   def index
-    @articles = Article.all
+    user_ids = current_user.followings.pluck(:id)
+    @articles = Article.where(user_id: user_ids).order(created_at: :desc)
   end
 
   def new
