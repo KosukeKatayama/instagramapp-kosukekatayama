@@ -44,14 +44,6 @@ class User < ApplicationRecord
     profile || build_profile
   end
 
-  def avatar_image
-    if profile&.avatar&.attached?
-      profile.avatar
-    else
-      'baseline_account_circle_black_48dp.png'
-    end
-  end
-
   def has_liked?(article)
     likes.exists?(article_id: article.id)
   end
