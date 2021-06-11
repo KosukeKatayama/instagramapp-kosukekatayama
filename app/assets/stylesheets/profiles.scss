@@ -7,7 +7,34 @@
   cursor: pointer;
 }
 
-.breadcrumb__list {
+// .breadcrumb__list {
+//   font-weight: 500;
+//   font-size: 14px;
+//   line-height: 21px;
+//   position: absolute;
+//   width: 241px;
+//   height: 47px;
+//   left: 75px;
+//   top: 253px;
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+.breadcrumb__list_primary {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  position: absolute;
+  width: 241px;
+  height: 47px;
+  left: 75px;
+  top: 229px;
+  display: flex;
+  justify-content: space-around;
+  color: #333A42;
+}
+
+.breadcrumb__list_secondary {
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
@@ -17,8 +44,18 @@
   left: 75px;
   top: 253px;
   display: flex;
-  // flex-direction: row;
   justify-content: space-around;
+}
+
+._breadcrumb__item {
+  font-size: 14px;
+  line-height: 21px;
+  color: #9E9E9E;
+  a {
+    font-size: 14px;
+    line-height: 21px;
+    color: #9E9E9E;
+  }
 }
 
 .count {
@@ -28,18 +65,7 @@
   display: flex;
   align-items: center;
   color: #333A42;
-  // position: absolute;
-  // width: 241px;
-  // height: 47px;
-  // left: 75px;
-  // top: 253px;
-  // display: flex;
 }
-
-
-
-
-
 
 .popup-overlay{
   visibility:hidden;
