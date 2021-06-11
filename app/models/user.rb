@@ -40,7 +40,7 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: 'following_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships, source: :follower
 
-  def prepare_profile?
+  def prepare_profile
     profile || build_profile
   end
 
@@ -48,7 +48,7 @@ class User < ApplicationRecord
     if profile&.avatar&.attached?
       profile.avatar
     else
-      'baseline_account_circle_black_48dp.png'
+      'default-avatar.png'
     end
   end
 

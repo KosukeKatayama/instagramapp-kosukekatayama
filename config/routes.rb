@@ -6,9 +6,6 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'articles#index'
-  resource :popular, only: %i[show]
-
-  resource :profile, only: %i[show edit update]
 
   resources :accounts, only: %i[show] do
     resources :followings, only: %i[index]
@@ -19,6 +16,11 @@ Rails.application.routes.draw do
 
   resources :articles, only: %i[index new create] do
     resources :comments, only: %i[index new create]
+  end
+
+  scope module: :apps do
+    resource :profile, only: %i[show edit update]
+    resource :popular, only: %i[show]
   end
 
   namespace :api do
