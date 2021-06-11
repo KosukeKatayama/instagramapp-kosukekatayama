@@ -5,7 +5,7 @@ module UserDecorator
     if profile&.avatar&.attached?
       profile.avatar
     else
-      'baseline_account_circle_black_48dp.png'
+      'default-avatar.png'
     end
   end
 end
