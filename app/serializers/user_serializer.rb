@@ -24,7 +24,15 @@ class UserSerializer < ActiveModel::Serializer
 
   attributes :id, :username, :comment_avatar_image
 
+  # def comment_avatar_image
+  #   rails_blob_path(object.avatar_image)
+  # end
+
   def comment_avatar_image
-    rails_blob_path(object.avatar_image) if object.avatar_image.attached?
+    if object.avatar_image != 'default-avatar.png'
+      rails_blob_path(object.avatar_image)
+    else
+      '/assets/default-avatar.png'
+    end
   end
 end

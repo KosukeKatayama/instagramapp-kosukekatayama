@@ -87,11 +87,14 @@ document.addEventListener('turbolinks:load', () => {
     const comment = res.data
     comment.forEach((comment) => {
       $('.comment-container').append(
-        `<img class="avatar-tertiary" src="${comment.user.comment_avatar_image}">
-        <div class="article-comment"><p class="article-page_username">${comment.user.username}</p></div>
-        <div class="article-comment"><p>${comment.content}</p></div>`
+        `<div class="comment-page">
+          <img class="avatar-tertiary" src="${comment.user.comment_avatar_image}">
+          <div>
+            <div class="article-comment"><p class="comment-page_username">${comment.user.username}</p></div>
+            <div class="article-comment"><p class="comment-page_content">${comment.content}</p></div>
+          <div/>
+        </div>`
       )
-      // debugger
     })
   })
 
@@ -106,9 +109,13 @@ document.addEventListener('turbolinks:load', () => {
         .then((res) => {
           const comment = res.data
           $('.comment-container').append(
-            `<img class="avatar-tertiary" src="${comment.user.comment_avatar_image}">
-            <div class="article-comment"><p class="article-page_username">${comment.user.username}</p></div>
-            <div class="article-comment"><p>${comment.content}</p></div>`
+            `<div class="comment-page">
+              <img class="avatar-tertiary" src="${comment.user.comment_avatar_image}">
+              <div>
+                <div class="article-comment"><p class="comment-page_username">${comment.user.username}</p></div>
+                <div class="article-comment"><p class="comment-page_content">${comment.content}</p></div>
+              <div/>
+            </div>`
           )
           console.log(res)
           $('#comment_content').val('')

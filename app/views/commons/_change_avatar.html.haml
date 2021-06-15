@@ -1,0 +1,10 @@
+.popup-overlay
+  .popup-content
+    = form_with(model: Profile, url: profile_path, method: 'put', local: true) do |f|
+      %div
+        = f.label :avatar, 'Avatar'
+      %div
+        = f.file_field :avatar, class: 'text'   
+      %div
+        = f.submit 'Submit', class: 'btn-submit'
+    %button.close cancel

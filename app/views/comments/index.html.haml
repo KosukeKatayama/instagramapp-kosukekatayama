@@ -1,7 +1,5 @@
 .container
-  %div
-    = link_to 'javascript:history.back()' do
-      = image_tag 'Group.png', class: 'back-img'
+  = render 'commons/back_image'
 
   .center-text#comment{data: {article_id: @article.id}}
     Comment

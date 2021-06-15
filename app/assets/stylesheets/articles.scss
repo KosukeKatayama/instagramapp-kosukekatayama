@@ -38,6 +38,22 @@
   }
 }
 
+.comment-page {
+  display: flex;
+  padding-bottom: 55px;
+  &_username {
+    color: $primary-color;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &_content {
+    color: #9B9B9B;
+    font-size: 14px;
+    line-height: 20px;
+    overflow-wrap: anywhere;
+  }
+}
+
 .icons {
   display: flex;
   margin-bottom: 8px;
