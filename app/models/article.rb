@@ -18,6 +18,9 @@ class Article < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments
 
+  # validates :images, presence: true
+  validates :content, presence: true, length: { maximum: 2200 }
+
   def display_created_at
     I18n.l(created_at, format: :default)
   end
