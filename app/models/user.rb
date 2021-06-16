@@ -41,9 +41,10 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships, source: :follower
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_USERNAME_REGEX = /\A[\w+\-.]/
+  VALID_USERNAME_REGEX = /\A[\w\-.]+\z/
+  VALID_PASSWORD_REGEX = /\A[\w\-]+\z/
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :encrypted_password, presence: true, length: { in: 6..20 }
+  validates :password, presence: true, length: { in: 6..20 }, format: { with: VALID_PASSWORD_REGEX }
   validates :username, presence: true, uniqueness: true, length: { in: 1..30 }, format: { with: VALID_USERNAME_REGEX }
 
 
