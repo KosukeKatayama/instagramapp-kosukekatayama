@@ -45,4 +45,30 @@ RSpec.describe User, type: :model do
       expect(user.errors.messages[:username][0]).to eq('を入力してください')
     end
   end
+
+  context '重複していたメールアドレス場合' do
+    let!(:user1) { create(:user, email: 'example@example.com') }
+    let!(:user2) { build(:user, email: 'example@example.com') }
+
+    before do
+      user2.save
+    end
+
+    it 'ユーザーの登録に失敗する' do
+      expect(user2.errors.messages[:email][0]).to eq('はすでに存在します')
+    end
+  end
+
+  context '重複していたユーザーネームの場合' do
+    let!(:user1) { create(:user)}
+    let!(:user2) { build(:user)}
+
+    before do
+      user2.save
+    end
+
+    it 'ユーザーの登録に失敗する' do
+      expect(user2.errors.messages[:username][0]).to eq('はすでに存在します')
+    end
+  end
 end
