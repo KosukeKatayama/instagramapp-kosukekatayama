@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context '重複していたメールアドレス場合' do
+  context '重複していたメールアドレスの場合' do
     let!(:user1) { create(:user, email: 'example@example.com') }
     let!(:user2) { build(:user, email: 'example@example.com') }
 
@@ -105,6 +105,50 @@ RSpec.describe User, type: :model do
 
     it 'ユーザーの登録に失敗する' do
       expect(user.errors.messages[:username][0]).to eq('は30文字以内で入力してください')
+    end
+  end
+
+  context 'メールアドレスが大文字で入力された場合' do
+    let!(:user) { create(:user, email: 'EXAMPLE@EXAMPLE.COM')}
+
+    it 'メールアドレスは小文字化される' do
+      expect(user.email).to eq('example@example.com')
+    end
+  end
+
+  context 'メールアドレスの先頭が不正な文字の場合' do
+    let!(:user) { build(:user, email: '$example@example.com')}
+
+    before do
+      user.save
+    end
+
+    it 'ユーザーの登録に失敗する' do
+      expect(user.errors.messages[:email][0]).to eq('は不正な値です')
+    end
+  end
+
+  context 'メールアドレスの@がない場合' do
+    let!(:user) { build(:user, email: 'example.example.com')}
+
+    before do
+      user.save
+    end
+
+    it 'ユーザーの登録に失敗する' do
+      expect(user.errors.messages[:email][0]).to eq('は不正な値です')
+    end
+  end
+
+  context 'メールアドレスの@の後に.がない場合' do
+    let!(:user) { build(:user, email: 'example@example,com')}
+
+    before do
+      user.save
+    end
+
+    it 'ユーザーの登録に失敗する' do
+      expect(user.errors.messages[:email][0]).to eq('は不正な値です')
     end
   end
 end
