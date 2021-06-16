@@ -152,8 +152,20 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'パスワードにが不正な文字が含まれている場合' do
-    let!(:user) { build(:user, password: 'パスワードです')}
+  context 'ユーザーネームに不正な文字が含まれている場合' do
+    let!(:user) { build(:user, username: 'u$')}
+
+    before do
+      user.save
+    end
+
+    it 'ユーザーの登録に失敗する' do
+      expect(user.errors.messages[:username][0]).to eq('は不正な値です')
+    end
+  end
+
+  context 'パスワードに不正な文字が含まれている場合' do
+    let!(:user) { build(:user, password: 'password$')}
 
     before do
       user.save
