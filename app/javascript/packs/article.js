@@ -53,31 +53,7 @@ document.addEventListener('turbolinks:load', () => {
       })
   })
 
-
-// $('.comment-img').on('click', function(){
-//   const articleId = $(this).attr('id')
-//   axios.get(`/api/articles/${articleId}/comments`)
-//   .then((res) => {
-//     const comment = res.data
-//     comment.forEach((comment) => {
-//       $('.comment-container').append(
-//         `<div class="article-comment"><p>${comment.content}</p></div>`
-//       )
-//     })
-//   })
-// })
-
-
-  // $('.comment-img').on('click', function(){
-  //   const articleId = $(this).attr('id')
-  //   axios.get(`/api/articles/${articleId}/comments`)
-  //   .then((res) => {
-  //     const comment = res.data
-  //     $('.comment-container').append(
-  //       `<div class="article-comment"><p>${comment.content}</p></div>`
-  //     )
-  //   })
-  // })
+  // comment--------------------------------------------------------------------------------------------------
 
   const dataset = $('#comment').data()
   const articleId = dataset.articleId
