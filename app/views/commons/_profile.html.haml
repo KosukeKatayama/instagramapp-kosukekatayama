@@ -8,34 +8,14 @@
   .profile-avatar
     = image_tag user.avatar_image, class: 'avatar-primary'
 
-  -# - if user == current_user
-  -#   .popup-overlay
-  -#     .popup-content
-  -#       = form_with(model: profile, url: profile_path, method: 'put', local: true) do |f|
-  -#         %div
-  -#           = f.label :avatar, 'Avatar'
-  -#         %div
-  -#           = f.file_field :avatar, class: 'text'   
-  -#         %div
-  -#           = f.submit 'Submit', class: 'btn-submit'
-  -#       %button.close cancel
-  -# - else
-  -#   - if current_user&.has_followed?(user)
-  -#     .header
-  -#       .header_right
-  -#       = button_to 'UnFollow', account_unfollows_path(user), class: 'unfollow-btn', remote: true
-  -#   - else
-  -#     .header
-  -#       .header_right
-  -#       = button_to 'Follow', account_follows_path(user), class: 'follow-btn', remote: true
-
   -if user == current_user
     = render 'commons/change_avatar'
 
-  - if current_user&.has_followed?(user)
-    = button_to 'UnFollow', account_unfollows_path(user), class: 'unfollow-btn', remote: true
-  -else
-    = button_to 'Follow', account_follows_path(user), class: 'follow-btn', remote: true
+  -if !current_page?(profile_path)
+    - if current_user&.has_followed?(user)
+      = button_to 'UnFollow', account_unfollows_path(user), class: 'unfollow-btn', remote: true
+    -else
+      = button_to 'Follow', account_follows_path(user), class: 'follow-btn', remote: true
 
   .breadcrumb__list_primary
     ._breadcrumb__item
