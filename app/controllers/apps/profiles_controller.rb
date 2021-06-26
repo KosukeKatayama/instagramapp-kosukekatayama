@@ -1,10 +1,6 @@
 class Apps::ProfilesController < Apps::ApplicationController
   def show; end
 
-  def edit
-    @profile = current_user.prepare_profile
-  end
-
   def update
     @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
@@ -12,7 +8,7 @@ class Apps::ProfilesController < Apps::ApplicationController
       redirect_to profile_path, notice: 'プロフィールが更新されました'
     else
       flash.now[:error] = 'プロフィールが更新できませんでした'
-      render :edit
+      redirect_to profile_path
     end
   end
 
