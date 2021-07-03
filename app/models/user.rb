@@ -47,7 +47,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { in: 6..20 }, format: { with: VALID_PASSWORD_REGEX }
   validates :username, presence: true, uniqueness: true, length: { in: 1..30 }, format: { with: VALID_USERNAME_REGEX }
 
-
   def prepare_profile
     profile || build_profile
   end

@@ -29,7 +29,7 @@ RSpec.describe 'Articles', type: :request do
       end
       it '新規投稿ができる' do
         article_params = attributes_for(:article)
-        post articles_path({article: article_params})
+        post articles_path({ article: article_params })
         expect(response).to have_http_status(302)
         expect(Article.last.content).to eq(article_params[:content])
       end
@@ -38,7 +38,7 @@ RSpec.describe 'Articles', type: :request do
     context 'ログインしていない場合' do
       it 'ログイン画面に遷移する' do
         article_params = attributes_for(:article)
-        post articles_path({article: article_params})
+        post articles_path({ article: article_params })
         expect(response).to redirect_to(new_user_session_path)
       end
     end
