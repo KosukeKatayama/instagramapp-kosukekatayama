@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Unfollows', type: :request do
   describe 'POST /unfollows' do
-    let!(:user1) { create(:user)}
-    let!(:user2) { create(:user, username: 'test2')}
+    let!(:user1) { create(:user) }
+    let!(:user2) { create(:user, username: 'test2') }
 
     before do
       sign_in user1

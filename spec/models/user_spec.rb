@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   context 'メールアドレス、パスワード、ユーザーネームがある場合' do
     let!(:user) { create(:user) }
 
@@ -60,8 +59,8 @@ RSpec.describe User, type: :model do
   end
 
   context '重複していたユーザーネームの場合' do
-    let!(:user1) { create(:user)}
-    let!(:user2) { build(:user)}
+    let!(:user1) { create(:user) }
+    let!(:user2) { build(:user) }
 
     before do
       user2.save
@@ -73,7 +72,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'パスワードの長さが6文字以下の場合' do
-    let!(:user) { build(:user, password: Faker::Lorem.characters(number: 5))}
+    let!(:user) { build(:user, password: Faker::Lorem.characters(number: 5)) }
 
     before do
       user.save
@@ -85,7 +84,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'パスワードの長さが20文字以上の場合' do
-    let!(:user) { build(:user, password: Faker::Lorem.characters(number: 21))}
+    let!(:user) { build(:user, password: Faker::Lorem.characters(number: 21)) }
 
     before do
       user.save
@@ -97,7 +96,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'ユーザーネームの長さが30文字以上の場合' do
-    let!(:user) { build(:user, username: Faker::Lorem.characters(number: 31))}
+    let!(:user) { build(:user, username: Faker::Lorem.characters(number: 31)) }
 
     before do
       user.save
@@ -109,7 +108,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'メールアドレスが大文字で入力された場合' do
-    let!(:user) { create(:user, email: 'EXAMPLE@EXAMPLE.COM')}
+    let!(:user) { create(:user, email: 'EXAMPLE@EXAMPLE.COM') }
 
     it 'メールアドレスは小文字化される' do
       expect(user.email).to eq('example@example.com')
@@ -117,7 +116,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'メールアドレスの先頭が不正な文字の場合' do
-    let!(:user) { build(:user, email: '$example@example.com')}
+    let!(:user) { build(:user, email: '$example@example.com') }
 
     before do
       user.save
@@ -129,7 +128,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'メールアドレスの@がない場合' do
-    let!(:user) { build(:user, email: 'example.example.com')}
+    let!(:user) { build(:user, email: 'example.example.com') }
 
     before do
       user.save
@@ -141,7 +140,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'メールアドレスの@の後に.がない場合' do
-    let!(:user) { build(:user, email: 'example@example,com')}
+    let!(:user) { build(:user, email: 'example@example,com') }
 
     before do
       user.save
@@ -153,7 +152,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'ユーザーネームに不正な文字が含まれている場合' do
-    let!(:user) { build(:user, username: 'u$')}
+    let!(:user) { build(:user, username: 'u$') }
 
     before do
       user.save
@@ -165,7 +164,7 @@ RSpec.describe User, type: :model do
   end
 
   context 'パスワードに不正な文字が含まれている場合' do
-    let!(:user) { build(:user, password: 'password$')}
+    let!(:user) { build(:user, password: 'password$') }
 
     before do
       user.save

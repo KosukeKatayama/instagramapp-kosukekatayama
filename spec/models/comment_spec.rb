@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   let!(:user) { create(:user) }
   let!(:article) { create(:article, user: user) }
-  
+
   context 'contentが2000文字以上の場合' do
     let!(:comment) { build(:comment, content: Faker::Lorem.characters(number: 2500), user: user, article: article) }
 
